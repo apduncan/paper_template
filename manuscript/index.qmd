@@ -1,0 +1,40 @@
+---
+title: Example Manuscript
+authors:
+  - name: Anthony Duncan
+    affiliation: 
+    - ref: qib
+    - ref: ei
+    - ref: cmi
+    roles: writing
+    corresponding: false
+affiliations:
+  - id: qib
+    name: Quadram Institute
+  - id: ei
+    name: Earlham Institute
+  - id: cmi
+    name: Centre for Microbial Interactions
+bibliography:
+- references.bib
+- ../qmd_fragments/methods/mgtk.bib
+csl: microbiome.csl
+---
+
+## Section
+
+This is a simple placeholder for the manuscript's main document [@knuth84].
+
+## Methods
+
+For standard methods in the group, like the metagenomic pipeline MG-TK, there are bits of markdown which can be included (or copied and customised if there's variation). You will also need to include the relevant `.bib` in the bibliography list in the document metadata, it would be nice if I had some script to work out which ones to include. The paragraph below this is from an include.
+
+{{< include ../qmd_fragments/methods/mgtk.qmd >}}
+<!-- For each fragment, also include the bibliography in the project level
+metadata -->
+
+## Results
+
+We can embed figures etc from a larger notebook. {{< embed notebooks/example.qmd#fig-hist >}}
+
+These notebooks are in the `notebooks` directory. In these, you can load objects from `targets`, but will have to specify the store as `store=../_targets`. The quarto render is run in the manuscript directory. It may be possible to set the store using `tar_set_options` but I haven't looked into it yet.

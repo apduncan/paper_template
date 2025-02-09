@@ -1,0 +1,12 @@
+---
+title: "MG-TK Methods"
+# bibliography: ../qmd_fragments/methods/mgtk.bib
+# References for these fragments are stored in the Hildebrand Group Zotero
+# group.
+---
+
+Sequences were processed with the MG-TK pipeline[@hildebrand_dispersal_2021; @bahram_metagenomic_2021]. Briefly, raw shotgun metagenomes were quality filtered using sdm v1.63 with default parameters66, assembled using megahit v 1.2.9 with parameters “--k-list 25,43,67,87,101,127”[@li_megahit_2015] and reads mapped onto assemblies using bowtie2 v2.3.4.1 with parameters “--end-to-end “ [@langmead_ultrafast_2009], genes predicted with prodigal v2.6.1 with parameters “-p meta”[@hyatt_prodigal_2010] and a gene catalogue clustered at 95% nt identity using mmseqs[@steinegger_mmseqs2_2017]. MAGs (metagenomic assembled genomes) were binned using semibin[@pan_deep_2022] and combined in MG-TK to MGS (metagenomic species), relying on canopy clustering[@nielsen_identification_2014]. Matrix operations were carried out using RTK[@saary_rtk_2017]. The full MG-TK pipeline is available at https://github.com/hildebra/mg-tk[@hildebrand_hildebramg-tk_2024].
+
+MGS phylogenies were calculated de novo based on the amino acid (AA) sequences of at most 40 marker genes[@mende_accurate_2013] present in each MGS and subsequently aligned using MAFFT v v7.464[@katoh_mafft_2013] with default options; the multiple sequence alignment (MSA) was then trimmed and translated from nucleotide to amino acid sequences using TrimAl[@capella-gutierrez_trimal_2009] (options “-keepheader -ignorestopcodon -gt 0.1 -cons 60”), from these IQ-TREE v1.6.3.a[@nguyen_iq-tree_2015] with parameters “-m GTR+F+I+G4 -B 1000” was used to reconstruct a phylogeny.
+
+The abundance of these MGS are estimated based on the coverage of their gene content. The abundance of species for which an MGS was not recovered are estimated by the coverage and taxonomic annotation of the genes which do not fall within any of the MGS.

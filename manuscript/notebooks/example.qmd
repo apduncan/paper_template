@@ -1,0 +1,19 @@
+What is the distribution of some random variables?
+
+```{r}
+#| label: fig-hist
+#| fig-cap: >
+#|  A histogram of 100 randomly values from a normal distribution
+library(ggplot2)
+library(targets)
+# See if we can load from targets
+print(getwd())
+vals <- tar_read(random_values, store = "../_targets")
+plt <- ggplot(mapping = aes(vals)) +
+    geom_histogram()
+plt
+```
+
+```{r}
+print(getwd())
+```

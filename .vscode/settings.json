@@ -1,0 +1,9 @@
+{
+    "editor.rulers": [
+        80
+    ],
+    "[r]": {
+        "editor.tabSize": 2
+    },
+    "r.plot.useHttpgd": true
+}
