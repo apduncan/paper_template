@@ -3,6 +3,9 @@
 {
 	"name": "R ecology paper",
 	"image": "apduncan/paper_template:latest",
+    // The user provided by the base image is 'rstudio', so use the, otherwise
+    // we end up using root.
+    "remoteUser": "rstudio",
 	// "build": {
 	// 	"context": ".",
 	// 	"dockerfile": "Dockerfile"
